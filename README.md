@@ -2,7 +2,8 @@ LAB - Class 06
 Project: ten-thousand
 Author: Tyler Huntley & 
 Links and Resources
-[ChatGPT]()
+[ChatGPT](https://openai.com/)  
+[chatgpt md](ten_thousand/chatgpt.md)
 How to initialize/run your application (where applicable)
 python ten-thousand/game_logic.py
 How to use your library (where applicable)
