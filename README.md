@@ -1,15 +1,16 @@
-# Challenge Title
-<!-- Description of the challenge -->
-
-## Whiteboard Process
-<!-- Embedded whiteboard image -->
-
-## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
-## Solution
-<!-- Show how to run your code, and examples of it in action -->
-
+LAB - Class 06
+Project: ten-thousand
+Author: Tyler Huntley & 
+Links and Resources
+[ChatGPT]()
+How to initialize/run your application (where applicable)
+python ten-thousand/game_logic.py
+How to use your library (where applicable)
+Tests
+How do you run tests?
+pytest -k tests/
+Any tests of note?
+Describe any tests that you did not complete, skipped, etc
 
 ## SETUP
 ```
