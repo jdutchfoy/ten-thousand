@@ -1,6 +1,6 @@
 LAB - Class 06
-Project: ten-thousand
-Author: Tyler Huntley & 
+Project: ten-thousand - version 1
+Author: Tyler Huntley & Dutch Foy
 Links and Resources
 [ChatGPT](https://openai.com/)  
 [chatgpt md](ten_thousand/chatgpt.md)
@@ -9,9 +9,12 @@ python ten-thousand/game_logic.py
 How to use your library (where applicable)
 Tests
 How do you run tests?
-pytest -k tests/
-Any tests of note?
-Describe any tests that you did not complete, skipped, etc
+pytest -k version_#
+
+Any tests of note? 
+Three 1s and a 5 was a pain to get passing. In the end, we had an order of operations issue, and after moving the 5s code towards the bottom, the test passed.
+
+ChatGPT is not very helpful and consistently writes code that will not pass the tests. 
 
 ## SETUP
 ```
