@@ -1,6 +1,3 @@
-
-
-
 from collections import Counter
 import random
 
@@ -8,7 +5,7 @@ class GameLogic:
     @staticmethod
     def calculate_score(dice):
         """
-        Calculate the score for a dice roll according to the rules of the game
+        Calculate the score for dice roll according to the rules of the game
         Args: dice: a tuple of integers
         Return: An integer representing the roll's score
         """
