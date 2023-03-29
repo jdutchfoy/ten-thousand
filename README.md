@@ -24,3 +24,20 @@ python3 .venv/bin/activate
 pip install -r requirements.txt
 # Will install pytest by default
 ```
+-----------------------------------------------------------------------------------------------------------
+LAB - Class 07
+Project: ten-thousand - version 2
+Author: Tyler Huntley (Dutch never showed up to lab to work this assignment)
+Links and Resources
+[ChatGPT](https://openai.com/)
+How to initialize/run your application (where applicable)
+python ten-thousand/game_logic.py
+How to use your library (where applicable)
+Tests
+How do you run tests?
+pytest -k version_#
+
+Any tests of note? 
+Worked on lab for approximately 7 hours. Was unable to get unbanked score finished.
+
+-----------------------------------------------------------------------------------------------------------

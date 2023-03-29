@@ -788,3 +788,139 @@ class GameLogic:
 The roll_dice method takes an integer num_dice representing the number of dice to roll. It first checks that the argument is a positive integer, and then uses a list comprehension with random.randint to generate num_dice random integers between 1 and 6, inclusive. The method returns the resulting list of integers.
 
 With this implementation, the given test should pass.
+
+
+Lab 07
+1. Given the following code, 
+from game_logic import GameLogic
+
+class Game:
+    def __init__(self):
+        self.dice_quantity = 6
+    def welcome(self):
+        print('Welcome to Ten Thousand')
+
+    def default_roller(self):
+        GameLogic.roll_dice(self.dice_quantity)
+
+    def play(self, roller=GameLogic.roll_dice):
+        if type(roller) == tuple:
+            roller = roller
+        else:
+            roller = GameLogic.roll_dice(self.dice_quantity)
+        print('(y)es to play or (n)o to decline')
+        print('**********', roller)
+        response = input('> ')
+        if response.lower() == 'n':
+            print('OK. Maybe another time')
+        elif response.lower() == 'y':
+            # To create an instance use GameLogic."name of static function"
+            self.round_start(roller)
+
+    def round_start(self, roller):
+        self.current_dice = list(roller)
+        self.saved_dice = []
+        self.play_round()
+
+    def play_round(self):
+        print(f'Starting round {}')
+        print(f'Rolling {self.dice_quantity} dice...')
+        print('Enter dice to keep, or (q)uit:')
+
+        response = input()
+
+    def bank(self, ):
+        pass
+
+    def total_score(self, ):
+        pass
+
+    def set_aside_dice(self, ):
+        pass
+
+
+
+
+if __name__ == '__main__':
+    my_game = Game()
+    my_game.welcome()
+    # test_roller = (4, 4, 5, 2, 3, 1)
+    # my_game.play(test_roller)
+    my_game.play()
+
+Write a function that will allow user to set aside dice in each roll
+Write a function that will allow "banking" the current score and rolling again
+Write a function to keep track of the total score
+Write a function to keep track of the current round
+To allow the user to set aside dice in each roll, you can modify the play_round function to prompt the user to input the indexes of the dice they want to set aside. Here's an implementation:
+
+python
+Copy code
+def play_round(self):
+    round_num = 1
+    while True:
+        print(f'Starting round {round_num}')
+        print(f'Rolling {self.dice_quantity} dice...')
+        dice = GameLogic.roll_dice(len(self.current_dice))
+        print('Dice:', dice)
+        if not dice:
+            print('No dice left to roll! Ending round.')
+            break
+
+        print('Enter dice to keep, or (q)uit:')
+        response = input().lower()
+        if response == 'q':
+            break
+
+        dice_indexes = [int(i) - 1 for i in response.split() if i.isnumeric()]
+        set_aside = [self.current_dice[i] for i in dice_indexes]
+        self.current_dice = [d for i, d in enumerate(self.current_dice) if i not in dice_indexes]
+        self.saved_dice.extend(set_aside)
+        print(f'You set aside {set_aside} and have {len(self.current_dice)} dice left.')
+
+        round_num += 1
+To allow banking the current score and rolling again, you can create a bank method that will add the current round score to the total score and reset the current_dice and saved_dice attributes. Here's an implementation:
+
+python
+Copy code
+def bank(self):
+    round_score = GameLogic.calculate_score(self.saved_dice)
+    print(f'You banked {round_score} points this round!')
+    self.total_score += round_score
+    self.current_dice = []
+    self.saved_dice = []
+    self.round_num += 1
+    self.play_round()
+To keep track of the total score, you can add a total_score attribute and update it each time the bank method is called:
+
+python
+Copy code
+def __init__(self):
+    self.dice_quantity = 6
+    self.total_score = 0
+
+def bank(self):
+    round_score = GameLogic.calculate_score(self.saved_dice)
+    print(f'You banked {round_score} points this round!')
+    self.total_score += round_score
+    self.current_dice = []
+    self.saved_dice = []
+    self.round_num += 1
+    self.play_round()
+To keep track of the current round, you can add a round_num attribute and increment it each time the bank method is called:
+
+python
+Copy code
+def __init__(self):
+    self.dice_quantity = 6
+    self.total_score = 0
+    self.round_num = 1
+
+def bank(self):
+    round_score = GameLogic.calculate_score(self.saved_dice)
+    print(f'You banked {round_score} points this round!')
+    self.total_score += round_score
+    self.current_dice = []
+    self.saved_dice = []
+    self.round_num += 1
+    self.play_round()
