@@ -27,6 +27,14 @@ pip install -r requirements.txt
 -----------------------------------------------------------------------------------------------------------
 LAB - Class 07
 Project: ten-thousand - version 2
+About this lab: Extend Ten Thousand game started in previous class to get the game in playable state.
+Feature Tasks and Requirements:  
+- Implement all features from previous version.  
+- Allow user to set aside dice each roll.  
+- Allow “banking” current score or rolling again.  
+- Keep track of total score.  
+- Keep track of current round.  
+- 
 Author: Tyler Huntley (Dutch never showed up to lab to work this assignment)
 Links and Resources
 [ChatGPT](https://openai.com/)
