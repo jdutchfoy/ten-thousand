@@ -96,22 +96,20 @@ class GameLogic:
 
         # Check for individual 1s and 5s
         # If the count of 1s is less than 3 and the count of 5s is less than 1, then the score for individual 1s, and 5s, is 0
-        # Otherwise the score for the individual 1s is 100 times the count of 1s and the score for individual 5s is 50 times the count of the 5s
         if not found_ones:
             score += min(dice_counts.get(1, 0), 3) * 100
-        if not found_fives:
-            score += (dice_counts.get(5, 0) - min(dice_counts.get(5, 0), 3)) * 50
 
         # Returning the final score
         return score
 
     @staticmethod
-    def roll_dice(num_dice):
+    def roll_dice(num_dice=6):
         """
         Roll a specified number of dice
         num_dice: An integer representing the number of dice to roll
         Returns: A list of integers representing the values rolled
         """
+        print(f'Rolling {num_dice} dice...')
         # If not an instance of num_dice, int, or num_dice is less than 1
         if not isinstance(num_dice, int) or num_dice < 1:
             # Raising Value Error
