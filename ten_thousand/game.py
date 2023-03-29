@@ -1,4 +1,4 @@
-import sys
+from sys import exit
 
 from game_logic import GameLogic
 
@@ -16,24 +16,20 @@ class Game:
         print('(y)es to play or (n)o to decline')
         response = input('> ')
         if response.lower() == 'n':
-            print('OK. Maybe another time')
-            # game_exit()
+            # print('OK. Maybe another time')
+            self.game_exit('OK. Maybe another time')
 
         elif response.lower() == 'y':
             # To create an instance use GameLogic."name of static function"
             self.round_start()
 
     @staticmethod
-    def game_exit():
-        sys.exit()
+    def game_exit(message):
+        exit(message)
 
     def round_start(self):
         self.play_round()
 
-        # TODO: Save for possible use in zilch function
-        # if len(self.current_dice) = 0:
-        #     print('HOT DICE! Roll again!')
-        #     return
 
     def play_round(self):
         while True:
@@ -44,8 +40,8 @@ class Game:
             print('Enter dice to keep, or (q)uit:')
             response = input().lower()
             if response == 'q':
-                print(f'Thanks for playing. You earned {self.total_score} points')
-                sys.exit()
+                # print(f'Thanks for playing. You earned {self.total_score} points')
+                self.game_exit(f'Thanks for playing. You earned {self.total_score} points')
             else:
                 self.dice_to_keep(self, response)
 
@@ -66,7 +62,7 @@ class Game:
             # break
         elif choice == 'q':
             print(f'Thanks for playing. You earned {self.total_score} points')
-            exit()
+            self.game_exit(f'Thanks for playing. You earned {self.total_score} points')
         else:
             print('Invalid choice. Please try again')
 
@@ -83,7 +79,16 @@ class Game:
             print(f'Congratulations! you won with a score of {self.total_score} points!')
             exit()
 
-# TODO Need to finish unbanked score
+    # TODO: zilch function - No points for round, and round is over
+    # if len(self.current_dice) = 0:
+
+    # TODO: Should allow user to continue rolling with 6 new dice when all dice have scored in current turn.
+    #     print('HOT DICE! Roll again!')
+    #     return
+
+    ## TODO: Should handle when cheating occurs. Or just typos. E.g. roll = [1,3,5,2] and user selects 1, 1, 1, 1, 1, 1
+
+    # TODO Need to finish unbanked score
     # def unbanked_round_score(self):
     #     self.unbanked_score = self.round_score - self.total_score
     #     print(f'You have {self.unbanked_score} unbanked points and {len(self.current_dice)} dice remaining')

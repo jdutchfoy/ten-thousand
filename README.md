@@ -24,7 +24,9 @@ python3 .venv/bin/activate
 pip install -r requirements.txt
 # Will install pytest by default
 ```
+
 -----------------------------------------------------------------------------------------------------------
+
 LAB - Class 07
 Project: ten-thousand - version 2
 About this lab: Extend Ten Thousand game started in previous class to get the game in playable state.
@@ -49,3 +51,30 @@ Any tests of note?
 Worked on lab for approximately 7 hours. Was unable to get unbanked score finished.
 
 -----------------------------------------------------------------------------------------------------------
+
+LAB - Class 08
+Project: ten-thousand - version 3
+About this lab: 
+Shore up the core functionality of game by allowing users to set aside scoring dice and continuing their turn. 
+Then we’ll handle cheaters and/or confused players who are skirting the rules.
+Feature Tasks and Requirements:  
+- Application should implement features from versions 1 and 2
+- Should handle setting aside scoring dice and continuing turn with remaining dice.
+- Should handle when cheating occurs.
+  - Or just typos.
+  - E.g. roll = [1,3,5,2] and user selects 1, 1, 1, 1, 1, 1
+- Should allow user to continue rolling with 6 new dice when all dice have scored in current turn.
+- Handle zilch
+  - No points for round, and round is over
+
+Author: Tyler Huntley & Dutch Foy
+Links and Resources
+[ChatGPT](https://openai.com/)
+How to initialize/run your application (where applicable)
+python ten-thousand/game_logic.py
+How to use your library (where applicable)
+Tests
+How do you run tests?
+pytest -k version_#
+
+Any tests of note? 
